@@ -6,3 +6,5 @@
 /.vs/slnx.sqlite
 *.wsuo
 *.lock
+*.pyc
+/.vs/CodeNinja/v17/.wsuo
