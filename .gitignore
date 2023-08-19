@@ -8,3 +8,4 @@
 *.lock
 *.pyc
 /.vs/CodeNinja/v17/.wsuo
+/.vs/VSWorkspaceState.json
