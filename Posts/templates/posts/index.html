@@ -1,0 +1,21 @@
+{% if latestPost %}
+<ul>
+    {% for post in latestPost %}
+    <li><a href="/posts/{{ post.id }}/">{{ post.question_text }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No requests are available.</p>
+{% endif %}
+
+
+
+{% if latestPost %}
+<ul>
+    {% for post in latestPost %}
+    <li><a href="/polls/{{ post.id }}/">{{ post.question_text }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No Code potings are available.</p>
+{% endif %}

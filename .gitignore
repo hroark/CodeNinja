@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
@@ -9,3 +10,20 @@
 *.pyc
 /.vs/CodeNinja/v17/.wsuo
 /.vs/VSWorkspaceState.json
+=======
+﻿/.vs
+Posts/__pycache__/apps.cpython-39.pyc
+Posts/__pycache__/__init__.cpython-39.pyc
+CodeNinja/__pycache__/settings.cpython-39.pyc
+CodeNinja/__pycache__/__init__.cpython-39.pyc
+.vs/VSWorkspaceState.json
+.git
+./__pycache__
+>>>>>>> 32a20a604b5c5dead7ae42a8e2be85bf073c7cb9
+/Posts/__pycache__/admin.cpython-39.pyc
+/Posts/__pycache__/models.cpython-39.pyc
+/Posts/__pycache__/urls.cpython-39.pyc
+/Posts/__pycache__/views.cpython-39.pyc
+/CodeNinja/__pycache__/urls.cpython-39.pyc
+/Posts/migrations/__pycache__/0001_initial.cpython-39.pyc
+/Posts/migrations/__pycache__/__init__.cpython-39.pyc
