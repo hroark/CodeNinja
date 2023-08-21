@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import requestPost,codePost
+
+admin.site.register(requestPost)
+admin.site.register(codePost)

@@ -1,6 +1,7 @@
 import datetime
 from enum import Enum
 from django.db import models
+from django.contrib.auth.models import User
 
 class postType(Enum):
     request = 1
@@ -13,17 +14,33 @@ class basePost(models.Model):
     text = models.CharField(max_length=250)
     createDate = models.DateTimeField("Date created")
     language = models.CharField(max_length=10)
-    ##author = models.ForeignKey('User', on_delete=models.CASCADE)
+    author = models.ManyToManyField(User)
     pType = postType
     
     def __str__(self) -> str:
-        return self.Title
-    
+        return self.title
+
 class requestPost(basePost):
     pType = postType.request
-        
+    
+    def __init__(self,*args,**kwargs):
+        super(basePost, self).__init__(*args,**kwargs)
+    
+    def __str__(self) -> str:
+        return super().__str__()
+
+
+
+
+
 class codePost(basePost):
     ninjaPoints = models.IntegerField(default=0)
     pType = postType.code
+    
+    def __init__(self,*args,**kwargs):
+        super(basePost, self).__init__(*args,**kwargs)
+    
+    def __str__(self) -> str:
+        return super().__str__()
     
     
