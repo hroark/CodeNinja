@@ -1,22 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p><h5><strong>Latest Requests</strong></h5></p>
+<p class="m-0 text-dark text-center">Lateset Requests</p>
 
-{% for log in requestList %}
-<div class="card">
-
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 left  top">
+{% for request in requestList %}
+<div class="card-outer">
+<div class="card d-flex justify-content-center vh-100 align-items-center">
+   
             <div class="card-body">
-                <h3>{% block title %} {{ log.title }} {% endblock title %}</h3>
-                <p class="text-muted">{{ log.author }} | {{ log.createDate }}</p>
-                <p class="card-text ">{{ log.text | safe }}</p>
-                <a href="#" class="btn btn-primary">Read Request</a>
+                <h3>{% block title %} {{ request.title }} {% endblock title %}</h3>
+                <p class="pnormal text-muted">{{ request.author }} | {{ request.createDate }}</p>
+                <p class="card-text ">{{ request.text | safe }}</p>
+                <a href="{% url 'detail' request.slug %}" class="btn btn-primary">Read Request</a>
             </div>
-        </div>
     </div>
 </div>
+<p></p>
 {% endfor %}
 
 

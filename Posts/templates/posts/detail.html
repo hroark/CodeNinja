@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-outer">
+    <div class="justify-content-center vh-100 align-items-center">
+        <h3>{% block title %} {{ post.title }} {% endblock title %}</h3>
+        <p class="pnormal text-muted">{{ post.author }} | {{ post.createDate }}</p>
+        <p><strong>Description:</strong> <br />{{ post.text}}</p>
+        <p><strong>Language:</strong> <br /> {{ post.language}}</p>
+        </div>
+    </div>
+    {% endblock content %}
