@@ -3,6 +3,4 @@ from Posts import views
 
 
 urlpatterns = [
-    path("", views.index), 
-
 ]
