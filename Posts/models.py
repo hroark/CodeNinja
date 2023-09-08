@@ -1,7 +1,13 @@
 from enum import Enum
+from pickle import FALSE
 from pyexpat import model
+from tkinter import CASCADE
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
+
+from accounts.models import CustomUser
+
 
 class postType(Enum):
     request = 1
@@ -16,10 +22,10 @@ class Language(models.Model):
 class basePost(models.Model):
     title = models.CharField(max_length=50)
     text = models.CharField(max_length=250)
-    slug = models.SlugField(null=True)
+    slug = models.SlugField(null=False,unique=True)
     createDate = models.DateTimeField(auto_now_add=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
-    author = models.ManyToManyField(User)
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=FALSE)
     pType = postType
     
     class Meta:
@@ -27,12 +33,19 @@ class basePost(models.Model):
     
     def __str__(self) -> str:
         return f"{self.title} {self.author}"
+    
+
 
 class requestPost(basePost):
     pType = postType.request
     
     def __init__(self,*args,**kwargs):
         super(basePost, self).__init__(*args,**kwargs)
+        
+    def save(self, *args, **kwargs):
+        self.slug = slugify(kwargs.pop('slug', self.slug))
+
+        super(basePost, self).save(*args, **kwargs)
     
 
 class codePost(basePost):
@@ -45,4 +58,7 @@ class codePost(basePost):
     def __str__(self) -> str:
         return super().__str__()
     
-    
+
+
+
+

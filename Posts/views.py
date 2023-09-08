@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from Posts.models import basePost, requestPost,codePost
+from posts.models import basePost, requestPost,codePost
+from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
     requestList = requestPost.objects.order_by("createDate")[:5]
