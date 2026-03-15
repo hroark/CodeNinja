@@ -1,0 +1,6 @@
+@CodeNinja.Server_HostAddress = http://localhost:5246
+
+GET {{CodeNinja.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
